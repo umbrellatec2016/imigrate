@@ -1,0 +1,27 @@
+<div id="login">
+	<div class="cabecera">
+		Registro
+	</div>
+	
+	<div class="imagelogo">
+	</div>
+	<div class="logintext">
+		iMigrate
+	</div>
+
+	<div class="form">
+		<input type="text" class="form-control" name="username" id="username" placeholder="Usuario" ng-model="username">
+		<br/>
+		<input type="password" name="passw" class="form-control"  id="passw" placeholder="Contraseña" ng-model="passw">
+		<br/>
+		<br/>
+		<button class="form-control ingresar" ng-click="login()" >Ingresar</button>
+		<label class="labellost">Olvidaste tu contraseña ?</label>
+		<br/>
+		<br/>
+		<br/><label class="mensaje">{{mensaje}}</label>
+	</div>
+	<div>
+		<button ng-click="registro()" class="form-control registro">Debes Registrarte para agendar cita</button>
+	</div>
+</div>

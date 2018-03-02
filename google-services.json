@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "249816358076",
+    "firebase_url": "https://imigrate-afa6f.firebaseio.com",
+    "project_id": "imigrate-afa6f",
+    "storage_bucket": "imigrate-afa6f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249816358076:android:04cbf558cb9589ec",
+        "android_client_info": {
+          "package_name": "com.umbrellatec.iMigrate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "249816358076-slipb2t8h65mtefapsd1pma1ccnlv9rr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVKfS3pSVWBBKxt02m-P5rxJkSY-qIDpo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
