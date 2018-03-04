@@ -28,7 +28,7 @@ app.controller("login",function($scope,$http,$location){
     		localStorage.username = $scope.username;
     	if(!localStorage.passw)
     		localStorage.passw= $scope.passw;
-    	data ='username='+$scope.username+'&password='+$scope.passw;
+    	data ='username='+$scope.username+'&password='+$scope.passw+'&action=look';
     	 
     	 var config = {
                 headers : {
@@ -58,7 +58,7 @@ app.controller("login",function($scope,$http,$location){
     	$scope.mensaje=response.data.mensaje;
     	console.log(response.data.mensaje)
   		}).catch(function() {
-    		$scope.status = 'Failed...';
+    		$scope.mensaje = 'Error grave';
   		});
 
     	//$location.path("/registro");
@@ -76,8 +76,38 @@ app.controller("login",function($scope,$http,$location){
 })
 
 app.controller("registro",function($scope,$http,$location){
-	if (localStorage.username)
-    	 $scope.username=localStorage.username;
-    if(localStorage.passw)
-    	 $scope.passw=localStorage.passw;
+//	if (localStorage.username)
+  //  	 $scope.username=localStorage.username;
+   // if(localStorage.passw)
+    //	 $scope.passw=localStorage.passw;
+    
+    $scope.registro=function(){
+        if($scope.username.length>2 && $scope.passw.length>2 && $scope.email.length>5)
+        {
+    	   $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+    	   delete $http.defaults.headers.common['X-Requested-With'];
+    	   data ='username='+$scope.username+'&password='+$scope.passw+'&action=registro&email='+$scope.email;
+    	   $http.post('https://www.umbrellatec.com/imigrate/users.php',data).then(function(response) {
+    	//authToken = response.headers('A-Token');
+    	//$scope.user = response.data;
+    	//response= JSON.stringify(response)
+            if(response.data.login==true)
+                $location.path('/inicio');
+    	    console.log(response)
+            $scope.mensaje=response.data.mensaje;
+    	       console.log(response.data.mensaje)
+  		        }).catch(function() {
+    		  $scope.mensaje = 'error grave...';
+  		    });
+        }
+        else
+        {
+            $scope.mensaje='El usuario debe tener una longitud de mas de 5 caracteres '
+        }
+
+    }
+
+
+
+
 })

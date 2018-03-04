@@ -9,7 +9,8 @@
 		iMigrate
 	</div>
 
-	<div class="form">
+	<div class="form ">
+		
 		<input type="text" class="form-control" name="username" id="username" placeholder="Usuario" ng-model="username">
 		<br/>
 		<input type="password" name="passw" class="form-control"  id="passw" placeholder="Contraseña" ng-model="passw">
@@ -17,9 +18,10 @@
 		<input type="email" name="email" class="form-control"  id="email" placeholder="E-mail" ng-model="email">
 		<br/>
 		<br/>
-		<button class="form-control ingresar" ng-click="create()" >Registro</button>
+		<button class="form-control ingresar" ng-click="registro()" >Registro</button>
 
-		<label class="labellost">Olvidaste tu contraseña ?</label>
+		
 	</div>
-	
+	<br/>
+	<label class="mensaje btn-danger">{{mensaje}}</label>
 </div>
