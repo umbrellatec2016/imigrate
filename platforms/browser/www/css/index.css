@@ -108,4 +108,23 @@ html{
     font-size: 19px;
 }
 
+.imageuser
+{
+    background:url(../img/user.jpg) no-repeat center top;
+    width: 80px;
+    height: 80px;
+    top: 120px;
+    background-size: cover;
+    text-align: center;
+    display: table;
+    margin: 0 auto;
+    margin-top:30px;
+    border-radius: 50%;
 
+}
+.logintext
+{
+     font-size: 22px;
+    color: #000;
+    text-shadow:  2px 2px rgba(255,255,255,0.5);
+}

@@ -9,6 +9,10 @@ app.config(function($routeProvider) {
     	templateUrl : "src/registro/registro.html",
     	controller : "registro"
     })
+    .when("/inicio",{
+        templateUrl : "src/inicio/inicio.html",
+        controller : "inicio"
+    })
     /*.when("/red", {
         templateUrl : "red.htm"
     })
@@ -55,6 +59,14 @@ app.controller("login",function($scope,$http,$location){
     	//$scope.user = response.data;
     	//response= JSON.stringify(response)
     	console.log(response)
+        if(response.data.login=='true')
+        {
+                 localStorage.username = $scope.username;
+                    //if(!localStorage.passw)
+                        localStorage.passw= $scope.passw;
+                        localStorage.id=response.data.id;
+                        $location.path("/inicio");
+        }
     	$scope.mensaje=response.data.mensaje;
     	console.log(response.data.mensaje)
   		}).catch(function() {
@@ -92,7 +104,14 @@ app.controller("registro",function($scope,$http,$location){
     	//$scope.user = response.data;
     	//response= JSON.stringify(response)
             if(response.data.login==true)
-                $location.path('/inicio');
+                {
+                   // if (!localStorage.username)
+                        localStorage.username = $scope.username;
+                    //if(!localStorage.passw)
+                        localStorage.passw= $scope.passw;
+                        localStorage.id=response.data.id;
+                    $location.path('/login');
+                }
     	    console.log(response)
             $scope.mensaje=response.data.mensaje;
     	       console.log(response.data.mensaje)
@@ -110,4 +129,16 @@ app.controller("registro",function($scope,$http,$location){
 
 
 
+})
+app.controller("inicio",function($scope,$http,$location){
+
+    console.log(localStorage.username);
+    if(localStorage.username==undefined)
+        $location.path('/login');
+    else
+        $scope.username=localStorage.username;
+    $scope.loadimage=function()
+    {
+        console.log('image')
+    }
 })
